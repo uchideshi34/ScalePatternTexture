@@ -216,6 +216,10 @@ func change_pattern_scale(pattern: Node2D, scale: float):
 	update_pattern_to_new_global_points(pattern, old_global_points)
 
 	transform_pattern_to_desired_global_anchor(pattern, desired_anchor_global)
+
+	if pattern.HasOutline:
+		pattern.SetOutline(pattern.polygon, ResourceLoader.load("res://textures/borders/default_border.png"))
+		
 	
 # Function to take a pattern and transform it so the texture aligns to the desired anchor point 
 func transform_pattern_to_desired_global_anchor(pattern, desired_anchor_global: Vector2):
